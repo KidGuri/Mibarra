@@ -1,20 +1,22 @@
 "use client";
 
+import Image from "next/image";
 import { useLanguage } from "@/context/LanguageContext";
 
 export default function Rating() {
   const { t } = useLanguage();
 
   return (
-    <section
-      className="relative py-28 md:py-36 overflow-hidden"
-      style={{
-        backgroundImage: "url(/images/restaurant/sunset-rating.png)",
-        backgroundAttachment: "fixed",
-        backgroundPosition: "center",
-        backgroundSize: "cover",
-      }}
-    >
+    <section className="relative py-28 md:py-36 overflow-hidden">
+      <div className="absolute inset-0">
+        <Image
+          src="/images/restaurant/sunset-rating.png"
+          alt=""
+          fill
+          className="object-cover md:fixed md:inset-0 md:h-screen"
+          style={{ objectPosition: "center" }}
+        />
+      </div>
       <div className="absolute inset-0 bg-black/70" />
 
       <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
