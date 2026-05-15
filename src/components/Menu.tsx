@@ -176,7 +176,7 @@ export default function Menu() {
 
   return (
     <section id="menu" className="py-24 md:py-32 bg-background">
-      <div className="max-w-5xl mx-auto px-6">
+      <div className="max-w-6xl mx-auto px-6">
         <div className="text-center mb-12 reveal">
           <p className="text-accent text-sm tracking-[0.3em] uppercase mb-4">
             {t("Nuestra carta", "Our menu")}
@@ -187,12 +187,12 @@ export default function Menu() {
         </div>
 
         <div className="reveal reveal-delay-1 overflow-x-auto scrollbar-hide mb-12 border-b border-card-border">
-          <div className="flex justify-start md:justify-center gap-1 md:gap-2 pb-4 min-w-max px-4">
+          <div className="flex justify-start md:justify-center gap-2 md:gap-3 pb-4 min-w-max px-2">
             {tabs.map((tab) => (
               <button
                 key={tab.key}
                 onClick={() => setActiveTab(tab.key)}
-                className={`flex-shrink-0 px-3 py-2 text-[11px] md:text-xs tracking-[0.15em] uppercase transition-all duration-300 ${
+                className={`flex-shrink-0 px-3 md:px-4 py-2 text-xs tracking-widest uppercase transition-all duration-300 ${
                   activeTab === tab.key
                     ? "text-accent border-b-2 border-accent"
                     : "text-muted hover:text-foreground"
