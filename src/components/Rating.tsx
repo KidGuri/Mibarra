@@ -1,20 +1,37 @@
 "use client";
 
+import { useRef, useEffect, useState } from "react";
 import Image from "next/image";
 import { useLanguage } from "@/context/LanguageContext";
 
 export default function Rating() {
   const { t } = useLanguage();
+  const sectionRef = useRef<HTMLElement>(null);
+  const [offset, setOffset] = useState(0);
+
+  useEffect(() => {
+    const onScroll = () => {
+      if (!sectionRef.current) return;
+      const rect = sectionRef.current.getBoundingClientRect();
+      const windowH = window.innerHeight;
+      if (rect.bottom > 0 && rect.top < windowH) {
+        const progress = (windowH - rect.top) / (windowH + rect.height);
+        setOffset((progress - 0.5) * 120);
+      }
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   return (
-    <section className="relative py-28 md:py-36 overflow-hidden">
-      <div className="absolute inset-0">
+    <section ref={sectionRef} className="relative py-28 md:py-36 overflow-hidden">
+      <div className="absolute inset-[-60px] will-change-transform" style={{ transform: `translateY(${offset}px)` }}>
         <Image
           src="/images/restaurant/sunset-rating.png"
           alt=""
           fill
-          className="object-cover md:fixed md:inset-0 md:h-screen"
-          style={{ objectPosition: "center" }}
+          className="object-cover"
         />
       </div>
       <div className="absolute inset-0 bg-black/70" />
