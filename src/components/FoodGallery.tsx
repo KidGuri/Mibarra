@@ -4,18 +4,18 @@ import { useLanguage } from "@/context/LanguageContext";
 import Image from "next/image";
 
 const foodImages = [
-  { src: "/images/food/seafood-spread.png", label: { es: "Marisco fresco", en: "Fresh seafood" } },
+  { src: "/images/food/seafood-spread.png", label: { es: "Marisco fresco", en: "Fresh seafood" }, wide: true },
   { src: "/images/food/octopus.png", label: { es: "Pulpo a la gallega", en: "Galician-style octopus" } },
   { src: "/images/food/gazpacho-manchego.png", label: { es: "Gazpacho manchego", en: "Manchego gazpacho" } },
   { src: "/images/food/sardines.png", label: { es: "Sardinas a la brasa", en: "Grilled sardines" } },
   { src: "/images/food/mussels.png", label: { es: "Mejillones al vapor", en: "Steamed mussels" } },
   { src: "/images/food/ensaladilla.png", label: { es: "Ensaladilla rusa", en: "Russian salad" } },
   { src: "/images/food/croquetas.png", label: { es: "Croquetas caseras", en: "Homemade croquettes" } },
-  { src: "/images/food/squid.png", label: { es: "Sepia a la plancha", en: "Grilled cuttlefish" } },
+  { src: "/images/food/squid.png", label: { es: "Sepia a la plancha", en: "Grilled cuttlefish" }, wide: true },
   { src: "/images/food/dessert.png", label: { es: "Brownie de chocolate", en: "Chocolate brownie" } },
   { src: "/images/food/salad.png", label: { es: "Ensalada Mibarra", en: "Mibarra salad" } },
   { src: "/images/food/octopus2.png", label: { es: "Pulpo a la brasa", en: "Chargrilled octopus" } },
-  { src: "/images/food/scallops.png", label: { es: "Zamburiñas a la plancha", en: "Grilled scallops" } },
+  { src: "/images/food/scallops.png", label: { es: "Zamburiñas a la plancha", en: "Grilled scallops" }, wide: true },
   { src: "/images/food/salad2.png", label: { es: "Ensalada mixta", en: "Mixed salad" } },
   { src: "/images/food/scallops2.png", label: { es: "Zamburiñas", en: "Scallops" } },
 ];
@@ -35,11 +35,13 @@ export default function FoodGallery() {
           </h2>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-4">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 auto-rows-[250px] md:auto-rows-[300px]">
           {foodImages.map((img, i) => (
             <div
               key={img.src}
-              className={`reveal reveal-delay-${(i % 4) + 1} relative overflow-hidden group aspect-square`}
+              className={`reveal reveal-delay-${(i % 4) + 1} relative overflow-hidden group ${
+                img.wide ? "col-span-2" : ""
+              }`}
             >
               <Image
                 src={img.src}

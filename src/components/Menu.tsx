@@ -186,12 +186,12 @@ export default function Menu() {
           </h2>
         </div>
 
-        <div className="reveal reveal-delay-1 flex flex-wrap justify-center gap-2 md:gap-4 mb-12 border-b border-card-border pb-4">
+        <div className="reveal reveal-delay-1 flex justify-center gap-2 md:gap-4 mb-12 border-b border-card-border pb-4 overflow-x-auto scrollbar-hide whitespace-nowrap">
           {tabs.map((tab) => (
             <button
               key={tab.key}
               onClick={() => setActiveTab(tab.key)}
-              className={`px-4 py-2 text-xs md:text-sm tracking-widest uppercase transition-all duration-300 ${
+              className={`flex-shrink-0 px-3 md:px-4 py-2 text-xs md:text-sm tracking-widest uppercase transition-all duration-300 ${
                 activeTab === tab.key
                   ? "text-accent border-b-2 border-accent"
                   : "text-muted hover:text-foreground"
@@ -210,7 +210,7 @@ export default function Menu() {
                 <h3 className="text-xl md:text-2xl font-extralight text-accent mb-8 tracking-wider">
                   {lang === "es" ? cat.title.es : cat.title.en}
                 </h3>
-                <div className="grid gap-4 md:gap-6">
+                <div className={`grid gap-4 md:gap-6 ${activeTab === "tapas" ? "md:grid-cols-2" : ""}`}>
                   {cat.items.map((item, i) => (
                     <div
                       key={i}
