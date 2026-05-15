@@ -186,20 +186,22 @@ export default function Menu() {
           </h2>
         </div>
 
-        <div className="reveal reveal-delay-1 flex justify-start md:justify-center gap-2 md:gap-4 mb-12 border-b border-card-border pb-4 overflow-x-auto scrollbar-hide whitespace-nowrap px-2">
-          {tabs.map((tab) => (
-            <button
-              key={tab.key}
-              onClick={() => setActiveTab(tab.key)}
-              className={`flex-shrink-0 px-3 md:px-4 py-2 text-xs md:text-sm tracking-widest uppercase transition-all duration-300 ${
-                activeTab === tab.key
-                  ? "text-accent border-b-2 border-accent"
-                  : "text-muted hover:text-foreground"
-              }`}
-            >
-              {lang === "es" ? tab.label.es : tab.label.en}
-            </button>
-          ))}
+        <div className="reveal reveal-delay-1 overflow-x-auto scrollbar-hide mb-12 border-b border-card-border">
+          <div className="flex justify-start md:justify-center gap-1 md:gap-2 pb-4 min-w-max px-4">
+            {tabs.map((tab) => (
+              <button
+                key={tab.key}
+                onClick={() => setActiveTab(tab.key)}
+                className={`flex-shrink-0 px-3 py-2 text-[11px] md:text-xs tracking-[0.15em] uppercase transition-all duration-300 ${
+                  activeTab === tab.key
+                    ? "text-accent border-b-2 border-accent"
+                    : "text-muted hover:text-foreground"
+                }`}
+              >
+                {lang === "es" ? tab.label.es : tab.label.en}
+              </button>
+            ))}
+          </div>
         </div>
 
         <div className="reveal reveal-delay-2">
