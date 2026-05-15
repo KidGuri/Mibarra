@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Image from "next/image";
 import { useLanguage } from "@/context/LanguageContext";
 
 export default function Navbar() {
@@ -31,8 +32,8 @@ export default function Navbar() {
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-        <a href="#" className="text-2xl font-light tracking-[0.3em] text-foreground hover:text-accent transition-colors">
-          mibarra
+        <a href="#" className="hover:opacity-80 transition-opacity">
+          <Image src="/images/logo-white.png" alt="mibarra" width={140} height={30} className="h-6 md:h-7 w-auto" />
         </a>
 
         <div className="hidden md:flex items-center gap-8">

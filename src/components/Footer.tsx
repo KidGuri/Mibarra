@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useLanguage } from "@/context/LanguageContext";
 
 export default function Footer() {
@@ -9,8 +10,8 @@ export default function Footer() {
     <footer className="bg-background border-t border-card-border py-12">
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-          <a href="#" className="text-xl font-light tracking-[0.3em] text-foreground">
-            mibarra
+          <a href="#" className="hover:opacity-80 transition-opacity">
+            <Image src="/images/logo-white.png" alt="mibarra" width={140} height={30} className="h-6 w-auto" />
           </a>
 
           <div className="flex gap-8">

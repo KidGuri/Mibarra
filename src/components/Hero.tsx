@@ -9,18 +9,18 @@ export default function Hero() {
   return (
     <section className="relative h-screen flex items-center justify-center overflow-hidden">
       <Image
-        src="/images/restaurant/exterior-night.png"
-        alt="Mibarra restaurant exterior"
+        src="/images/restaurant/interior-hero.png"
+        alt="Mibarra restaurant interior"
         fill
         className="object-cover"
         priority
       />
-      <div className="absolute inset-0 bg-black/60" />
+      <div className="absolute inset-0 bg-black/70" />
 
       <div className="relative z-10 text-center px-6">
-        <h1 className="text-6xl md:text-8xl font-extralight tracking-[0.4em] text-white animate-fade-in-up">
-          mibarra
-        </h1>
+        <div className="animate-fade-in-up">
+          <Image src="/images/logo-white.png" alt="mibarra" width={500} height={80} className="h-16 md:h-24 w-auto mx-auto" priority />
+        </div>
         <div className="w-16 h-[1px] bg-accent mx-auto mt-8 animate-fade-in-up-delay" />
         <p className="mt-6 text-lg md:text-xl font-light tracking-widest text-white/80 uppercase animate-fade-in-up-delay-2">
           {t(
