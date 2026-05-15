@@ -186,7 +186,7 @@ export default function Menu() {
           </h2>
         </div>
 
-        <div className="reveal reveal-delay-1 flex justify-center gap-2 md:gap-4 mb-12 border-b border-card-border pb-4 overflow-x-auto scrollbar-hide whitespace-nowrap">
+        <div className="reveal reveal-delay-1 flex justify-start md:justify-center gap-2 md:gap-4 mb-12 border-b border-card-border pb-4 overflow-x-auto scrollbar-hide whitespace-nowrap px-2">
           {tabs.map((tab) => (
             <button
               key={tab.key}
